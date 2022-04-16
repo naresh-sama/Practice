@@ -1,0 +1,40 @@
+<!-- <div class="container">
+    <form [formGroup]="loginForm" >
+<div class="formGroup">
+    <label for="exampleInputEmail">Enter email</label>
+    <input type="email" class="form-control" formControlName="email" placeholder="enter email">
+    <small class="form-text text-muted" 
+        *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['required']">
+          Please enter email address.!
+    </small>
+</div> 
+<div class="formGroup">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+
+</div>
+
+<button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+</form>
+</div> -->
+<form  >
+    <div class="formGroup">
+        <label for="exampleInputEmail">Enter email</label>
+        <input type="text" class="form-control" name="email" 
+        placeholder="enter email" [(ngModel)]="loginData.email" #pwd="ngModel">
+        <small class="form-text text-muted" 
+        *ngIf="subdmit&&loginData.email=='' ">
+          Please enter email address.!
+    </small>
+    </div> 
+    <div class="formGroup">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="pwd"  
+        placeholder="Password" [(ngModel)]="loginData.password" #pwd="ngModel">
+    
+    </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+    </form>
+
+<span *ngIf="subdmit&&errorMsg!==undefined">{{errorMsg}}</span>
