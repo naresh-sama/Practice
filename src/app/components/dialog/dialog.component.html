@@ -1,0 +1,29 @@
+<ng-container *ngIf="action !='delete';else deleteBlock">
+    <div mat-dialog-content >
+        <mat-form-field>
+          <input matInput [(ngModel)]="UserData.name" placeholder="Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="UserData.email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="UserData.number" placeholder="Number">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="UserData.city" placeholder="City">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions >
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button  (click)="close()" >{{action}}</button>
+      </div>
+</ng-container>
+<ng-template #deleteBlock>
+    <div mat-dialog-content >
+        Are you sure want to delete this record.
+    </div>
+    <div mat-dialog-actions >
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button  (click)="close()" >{{action}}</button>
+    </div>
+</ng-template>
